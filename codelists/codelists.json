@@ -1,3 +1,28 @@
 {
-  "files": {}
+  "files": {
+    "opensafely-asthma-diagnosis.csv": {
+      "id": "opensafely/asthma-diagnosis/2020-04-15",
+      "url": "https://codelists.opensafely.org/codelist/opensafely/asthma-diagnosis/2020-04-15/",
+      "downloaded_at": "2022-05-25 23:41:42.494544Z",
+      "sha": "722a6ba77a1289a0941cfaa7ce0b9fa32c836f3c"
+    },
+    "opensafely-asthma-inhaler-steroid-medication.csv": {
+      "id": "opensafely/asthma-inhaler-steroid-medication/2020-04-15",
+      "url": "https://codelists.opensafely.org/codelist/opensafely/asthma-inhaler-steroid-medication/2020-04-15/",
+      "downloaded_at": "2022-05-25 23:41:42.696764Z",
+      "sha": "d184aff205a5017c9e656d2be7484e3aaadc9cda"
+    },
+    "user-alex-walker-sick-notes-ctv3.csv": {
+      "id": "user/alex-walker/sick-notes-ctv3/7680885a",
+      "url": "https://codelists.opensafely.org/codelist/user/alex-walker/sick-notes-ctv3/7680885a/",
+      "downloaded_at": "2022-05-25 23:41:42.905681Z",
+      "sha": "11a673a47d07e7537065775558e068cdb428437d"
+    },
+    "user-kate-mansfield-disorder-of-respiratory-system-all-descendants.csv": {
+      "id": "user/kate-mansfield/disorder-of-respiratory-system-all-descendants/31adfa8e",
+      "url": "https://codelists.opensafely.org/codelist/user/kate-mansfield/disorder-of-respiratory-system-all-descendants/31adfa8e/",
+      "downloaded_at": "2022-05-25 23:43:22.625905Z",
+      "sha": "5e052c384a4d7abd4151f447e1ed4c6bf39e8ed5"
+    }
+  }
 }
