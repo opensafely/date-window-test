@@ -5,8 +5,19 @@ expectations:
 
 actions:
 
-  generate_study_population:
-    run: cohortextractor:latest generate_cohort --study-definition study_definition
+  generate_study_population_before_fix:
+    run: cohortextractor:latest generate_cohort
+      --study-definition study_definition
+      --output-dir=output/before_fix
     outputs:
       highly_sensitive:
-        cohort: output/input.csv
+        cohort: output/before_fix/input.csv
+
+  generate_study_population_after_fix:
+    run: cohortextractor:latest generate_cohort
+      --study-definition study_definition
+      --output-dir=output/after_fix
+      --with-end-date-fix
+    outputs:
+      highly_sensitive:
+        cohort: output/after_fix/input.csv
