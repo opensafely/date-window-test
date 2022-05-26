@@ -38,14 +38,24 @@ study = StudyDefinition(
             "date": {"earliest": "index_date"},
         },
     ),
-    clinical_event_between=patients.with_these_clinical_events(
+    clinical_event_between_one_day=patients.with_these_clinical_events(
         codelists.respiratory_disorder,
         between=["sick_note_1_date", "sick_note_1_date"],
         return_expectations={"incidence": 0.9},
     ),
-    med_between=patients.with_these_medications(
+    med_between_one_day=patients.with_these_medications(
         codelists.ics,
         between=["sick_note_1_date", "sick_note_1_date"],
+        return_expectations={"incidence": 0.9},
+    ),
+    clinical_event_between_one_week=patients.with_these_clinical_events(
+        codelists.respiratory_disorder,
+        between=["index_date", "index_date + 7 days"],
+        return_expectations={"incidence": 0.9},
+    ),
+    med_between_one_week=patients.with_these_medications(
+        codelists.ics,
+        between=["index_date", "index_date + 7 days"],
         return_expectations={"incidence": 0.9},
     ),
 )
