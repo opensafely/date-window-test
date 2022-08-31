@@ -7,8 +7,6 @@ from cohortextractor import (
 
 import codelists
 
-INDEX_DATE = "2020-02-01"
-
 study = StudyDefinition(
     default_expectations={
         "date": {"earliest": "1900-01-01", "latest": "today"},

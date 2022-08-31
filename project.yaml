@@ -5,26 +5,148 @@ expectations:
 
 actions:
 
-  generate_study_population_before_fix:
+  generate_study_population_before_fix_mon:
     run: cohortextractor:latest generate_cohort
       --study-definition study_definition
       --output-dir=output/before_fix
+      --index-date-range "2020-02-03"
     outputs:
       highly_sensitive:
-        cohort: output/before_fix/input.csv
+        cohort: output/before_fix/input_2020-02-03.csv
 
-  generate_study_population_after_fix:
+  generate_study_population_after_fix_mon:
     run: cohortextractor:latest generate_cohort
       --study-definition study_definition
       --output-dir=output/after_fix
+      --index-date-range "2020-02-03"
       --with-end-date-fix
     outputs:
       highly_sensitive:
-        cohort: output/after_fix/input.csv
+        cohort: output/after_fix/input_2020-02-03.csv
+
+  generate_study_population_before_fix_tues:
+    run: cohortextractor:latest generate_cohort
+      --study-definition study_definition
+      --output-dir=output/before_fix
+      --index-date-range "2020-02-04"
+    outputs:
+      highly_sensitive:
+        cohort: output/before_fix/input_2020-02-04.csv
+
+  generate_study_population_after_fix_tues:
+    run: cohortextractor:latest generate_cohort
+      --study-definition study_definition
+      --output-dir=output/after_fix
+      --index-date-range "2020-02-04"
+      --with-end-date-fix
+    outputs:
+      highly_sensitive:
+        cohort: output/after_fix/input_2020-02-04.csv
+
+  generate_study_population_before_fix_weds:
+    run: cohortextractor:latest generate_cohort
+      --study-definition study_definition
+      --output-dir=output/before_fix
+      --index-date-range "2020-02-05"
+    outputs:
+      highly_sensitive:
+        cohort: output/before_fix/input_2020-02-05.csv
+
+  generate_study_population_after_fix_weds:
+    run: cohortextractor:latest generate_cohort
+      --study-definition study_definition
+      --output-dir=output/after_fix
+      --index-date-range "2020-02-05"
+      --with-end-date-fix
+    outputs:
+      highly_sensitive:
+        cohort: output/after_fix/input_2020-02-05.csv
+
+  generate_study_population_before_fix_thurs:
+    run: cohortextractor:latest generate_cohort
+      --study-definition study_definition
+      --output-dir=output/before_fix
+      --index-date-range "2020-02-06"
+    outputs:
+      highly_sensitive:
+        cohort: output/before_fix/input_2020-02-06.csv
+
+  generate_study_population_after_fix_thurs:
+    run: cohortextractor:latest generate_cohort
+      --study-definition study_definition
+      --output-dir=output/after_fix
+      --index-date-range "2020-02-06"
+      --with-end-date-fix
+    outputs:
+      highly_sensitive:
+        cohort: output/after_fix/input_2020-02-06.csv
+
+  generate_study_population_before_fix_fri:
+    run: cohortextractor:latest generate_cohort
+      --study-definition study_definition
+      --output-dir=output/before_fix
+      --index-date-range "2020-02-07"
+    outputs:
+      highly_sensitive:
+        cohort: output/before_fix/input_2020-02-07.csv
+
+  generate_study_population_after_fix_fri:
+    run: cohortextractor:latest generate_cohort
+      --study-definition study_definition
+      --output-dir=output/after_fix
+      --index-date-range "2020-02-07"
+      --with-end-date-fix
+    outputs:
+      highly_sensitive:
+        cohort: output/after_fix/input_2020-02-07.csv
+
+  generate_study_population_before_fix_sat:
+    run: cohortextractor:latest generate_cohort
+      --study-definition study_definition
+      --output-dir=output/before_fix
+      --index-date-range "2020-02-08"
+    outputs:
+      highly_sensitive:
+        cohort: output/before_fix/input_2020-02-08.csv
+
+  generate_study_population_after_fix_sat:
+    run: cohortextractor:latest generate_cohort
+      --study-definition study_definition
+      --output-dir=output/after_fix
+      --index-date-range "2020-02-08"
+      --with-end-date-fix
+    outputs:
+      highly_sensitive:
+        cohort: output/after_fix/input_2020-02-08.csv
+
+  generate_study_population_before_fix_sun:
+    run: cohortextractor:latest generate_cohort
+      --study-definition study_definition
+      --output-dir=output/before_fix
+      --index-date-range "2020-02-09"
+    outputs:
+      highly_sensitive:
+        cohort: output/before_fix/input_2020-02-09.csv
+
+  generate_study_population_after_fix_sun:
+    run: cohortextractor:latest generate_cohort
+      --study-definition study_definition
+      --output-dir=output/after_fix
+      --index-date-range "2020-02-09"
+      --with-end-date-fix
+    outputs:
+      highly_sensitive:
+        cohort: output/after_fix/input_2020-02-09.csv
 
   counts_script:
     run: python:latest python analysis/counts.py
-    needs: [generate_study_population_before_fix, generate_study_population_after_fix]
+    needs: [generate_study_population_before_fix_mon, generate_study_population_after_fix_mon, generate_study_population_before_fix_tues, generate_study_population_after_fix_tues, generate_study_population_before_fix_weds, generate_study_population_after_fix_weds, generate_study_population_before_fix_thurs, generate_study_population_after_fix_thurs, generate_study_population_before_fix_fri, generate_study_population_after_fix_fri, generate_study_population_before_fix_sat, generate_study_population_after_fix_sat, generate_study_population_before_fix_sun, generate_study_population_after_fix_sun]
     outputs:
       moderately_sensitive:
-        counts: output/counts.csv
+        counts_3: output/counts_2020-02-03.csv
+        counts_4: output/counts_2020-02-04.csv
+        counts_5: output/counts_2020-02-05.csv
+        counts_6: output/counts_2020-02-06.csv
+        counts_7: output/counts_2020-02-07.csv
+        counts_8: output/counts_2020-02-08.csv
+        counts_9: output/counts_2020-02-09.csv
