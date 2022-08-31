@@ -1,13 +1,16 @@
 import pandas as pd
 
-before_fix = pd.read_csv("output/before_fix/input.csv")
-after_fix = pd.read_csv("output/after_fix/input.csv")
+days = ["mon", "tues", "weds","thurs","fri","sat","sun"]
 
-before_sum = before_fix.sum()
-after_sum = after_fix.sum()
+for day in days:
+    before_fix = pd.read_csv(f"output/before_fix/input_{day}.csv")
+    after_fix = pd.read_csv(f"output/after_fix/input_{day}.csv")
 
-delta = after_sum - before_sum
+    before_sum = before_fix.sum()
+    after_sum = after_fix.sum()
 
-combined = pd.concat([before_sum, after_sum, delta], axis=1)
-print(combined)
-combined.to_csv("output/counts.csv")
+    delta = after_sum - before_sum
+
+    combined = pd.concat([before_sum, after_sum, delta], axis=1)
+    print(combined)
+    combined.to_csv(f"output/counts_{day}.csv")
