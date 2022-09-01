@@ -58,12 +58,12 @@ study = StudyDefinition(
     ),
     clinical_event_between_one_week=patients.with_these_clinical_events(
         codelists.respiratory_disorder,
-        between=["index_date", "index_date + 7 days"],
+        between=["index_date", "index_date + 6 days"],
         return_expectations={"incidence": 0.9},
     ),
     med_between_one_week=patients.with_these_medications(
         codelists.ics,
-        between=["index_date", "index_date + 7 days"],
+        between=["index_date", "index_date + 6 days"],
         return_expectations={"incidence": 0.9},
     ),
 )
