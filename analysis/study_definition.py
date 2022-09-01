@@ -36,6 +36,16 @@ study = StudyDefinition(
             "date": {"earliest": "index_date"},
         },
     ),
+    clinical_event_between_one_week=patients.with_these_clinical_events(
+        codelists.respiratory_disorder,
+        between=["index_date", "index_date + 6 days"],
+        return_expectations={"incidence": 0.9},
+    ),
+    med_between_one_week=patients.with_these_medications(
+        codelists.ics,
+        between=["index_date", "index_date + 6 days"],
+        return_expectations={"incidence": 0.9},
+    ),
     clinical_event_between_one_day_static=patients.with_these_clinical_events(
         codelists.respiratory_disorder,
         between=["index_date", "index_date"],
@@ -54,16 +64,6 @@ study = StudyDefinition(
     med_between_one_day_dynamic=patients.with_these_medications(
         codelists.ics,
         between=["sick_note_1_date", "sick_note_1_date"],
-        return_expectations={"incidence": 0.9},
-    ),
-    clinical_event_between_one_week=patients.with_these_clinical_events(
-        codelists.respiratory_disorder,
-        between=["index_date", "index_date + 7 days"],
-        return_expectations={"incidence": 0.9},
-    ),
-    med_between_one_week=patients.with_these_medications(
-        codelists.ics,
-        between=["index_date", "index_date + 7 days"],
         return_expectations={"incidence": 0.9},
     ),
 )
